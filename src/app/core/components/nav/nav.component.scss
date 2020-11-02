@@ -1,0 +1,14 @@
+.toolbar{
+  height: auto;
+  .ball-icon{
+    width: 5em;
+    height: 5em;
+    flex: 0 0 auto;
+  }
+  .title{
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 2em;
+    font-family: Ink Free;
+  }
+}
