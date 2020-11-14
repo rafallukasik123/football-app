@@ -8,6 +8,9 @@ import {Observable} from 'rxjs';
 })
 export class ListOfCompetitionsService {
 
-  constructor(private http: HttpClient){}
-  getCompetitions = () => this.http.get<Competitions>('http://api.football-data.org/v2/competitions');
+  constructor(private http: HttpClient){
+
+  }
+
+  getCompetitions = () => this.http.get<Competitions>(environment.endpointAddress + 'v2/competitions');
 }
