@@ -1,3 +1,4 @@
 <ul>
-  <li *ngFor="let competition of competitions">{{competition.name}}</li>
+  <li (click)="chooseCompetition(competition.id)" *ngFor="let competition of competitions">{{competition.name}}</li>
 </ul>
+{{selectedCompetition}}

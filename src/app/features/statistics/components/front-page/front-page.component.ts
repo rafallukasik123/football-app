@@ -11,6 +11,7 @@ export class FrontPageComponent implements OnInit {
 
   constructor(private frontPageService: FrontPageService) { }
   competitions: Competition[];
+  selectedCompetition: number;
   ngOnInit(): void {
     this.initData();
   }
@@ -18,6 +19,7 @@ export class FrontPageComponent implements OnInit {
   initData = () => {
     this.frontPageService.getCompetitions().subscribe(
       res => {
+        this.selectedCompetition = res.competitions[0].id;
         this.competitions = res.competitions;
       },
       error => {
@@ -25,5 +27,8 @@ export class FrontPageComponent implements OnInit {
       }
     );
 
+  }
+  changeCompetition = (idCompetition: number) => {
+    this.selectedCompetition = idCompetition;
   }
 }
