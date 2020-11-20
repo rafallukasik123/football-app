@@ -1,0 +1,13 @@
+.list{
+  list-style-type: none;
+  .element{
+    padding: 1em;
+    color: #8E9BA6;
+    transition: 0.5s;
+  }
+  .selected-element{
+    background: #2169F5;
+    color: white;
+    border-radius: 10px;
+  }
+}

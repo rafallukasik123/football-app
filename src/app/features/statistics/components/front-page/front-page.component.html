@@ -1,4 +1,5 @@
-<p>front-page works!</p>
-<app-list-of-competitions (changeCompetition)="changeCompetition($event)" [competitions]="competitions" [selectedCompetition]="selectedCompetition"></app-list-of-competitions>
+<nav>
+  <app-list-of-competitions (changeCompetition)="changeCompetition($event)" [competitions]="competitions" [selectedCompetition]="selectedCompetition"></app-list-of-competitions>
+</nav>
 <router-outlet></router-outlet>
 

@@ -1,4 +1,4 @@
-<ul>
-  <li (click)="chooseCompetition(competition.id)" *ngFor="let competition of competitions">{{competition.name}}</li>
+<ul class="list">
+  <li class="element" [ngClass]="{'selected-element': competition.id===selectedCompetition}" (click)="chooseCompetition(competition.id)" *ngFor="let competition of competitions">{{competition.name}}</li>
 </ul>
-{{selectedCompetition}}
+
