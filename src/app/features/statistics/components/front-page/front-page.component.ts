@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Competition} from '../../models/competition';
+import {FrontPageService} from '../../services/front-page.service';
 
 @Component({
   selector: 'app-front-page',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontPageComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private frontPageService: FrontPageService) { }
+  competitions: Competition[];
   ngOnInit(): void {
+    this.initData();
   }
 
+  initData = () => {
+    this.frontPageService.getCompetitions().subscribe(
+      res => {
+        this.competitions = res.competitions;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+  }
 }
