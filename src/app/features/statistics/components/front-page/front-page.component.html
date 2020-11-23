@@ -1,5 +1,8 @@
 <nav>
   <app-list-of-competitions (changeCompetition)="changeCompetition($event)" [competitions]="competitions" [selectedCompetition]="selectedCompetition"></app-list-of-competitions>
 </nav>
-<router-outlet></router-outlet>
+
+
+<app-list-of-matches [listOfMatches]="listOfMatches"></app-list-of-matches>
+
 

@@ -1,1 +1,4 @@
-<p>list-of-matches works!</p>
+<div *ngFor="let match of displayedMatches">
+  {{match.homeTeam.name}} - {{match.awayTeam.name}}
+
+</div>

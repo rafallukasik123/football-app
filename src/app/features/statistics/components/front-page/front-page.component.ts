@@ -15,6 +15,7 @@ export class FrontPageComponent implements OnInit {
   competitions: Competition[];
   selectedCompetition: number;
   currentSelectedCompetition$ = new BehaviorSubject<number>(0);
+  listOfMatches: Matches;
   ngOnInit(): void {
     this.subscribeSelectCompetition();
     this.initData();
@@ -39,8 +40,7 @@ export class FrontPageComponent implements OnInit {
   getAllMatchesById = (id: number) => {
     this.frontPageService.getAllMatchesById(id).subscribe(
       res => {
-        const currentMatchDay = this.getCurrentMatchDay(res);
-        console.log(currentMatchDay);
+        this.listOfMatches = res;
       },
       error => {
         console.log(error);
@@ -53,17 +53,5 @@ export class FrontPageComponent implements OnInit {
         this.getAllMatchesById(val);
       }
     });
-  }
-
-  getCurrentMatchDay = (matches: Matches) => {
-    const today = new Date();
-    const historicalMatches = matches.matches.filter(el => {
-      return new Date(el.utcDate) < today;
-    });
-    if (historicalMatches.length > 0){
-      return historicalMatches[historicalMatches.length - 1].matchday;
-    }else{
-      return 0;
-    }
   }
 }
